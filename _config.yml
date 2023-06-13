@@ -24,15 +24,27 @@ description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+# baseurl: "" # the subpath of your site, e.g. /blog
+# url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
+# relative_url: "flylight_inst_seg_dataset"
 
 # Build settings
-theme: minima
+# remote_theme: pages-themes/cayman@v0.2.0
+# plugins:
+# - jekyll-remote-theme
+theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
+
+
+# show_downloads: true
+
+# to override urls supplied by github
+# github:
+#   zip_url: http://example.com/download.zip
+#   another_url: another value
 
 # Exclude from processing.
 # The following items will not be processed, by default.
