@@ -109,7 +109,12 @@ a {
   color: $header-heading-color;
   text-align: center;
   background-color: $header-bg-color;
-  background-image: linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+  // background-image: linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+  background-image: url("flylight_sample.jpg");
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
 
   @include large {
     padding: 5rem 6rem;
