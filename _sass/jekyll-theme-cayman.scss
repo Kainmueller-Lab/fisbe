@@ -148,8 +148,9 @@ a {
 
 .project-tagline {
   margin-bottom: 2rem;
-  font-weight: normal;
-  opacity: 0.7;
+  font-weight: bold;
+  opacity: 1.0;
+  text-shadow: #000 -1px -1px,#000 1px 1px,#000 1px -1px,#000 -1px 1px;
 
   @include large {
     font-size: 1.25rem;
