@@ -32,7 +32,7 @@ Dagmar Kainmueller [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Dag
 <img src="./assets/VT047848-20171020_66_J1_gt.png" alt="ground truth instance segmentation for VT047848-20171020_66_J1" width="24%" />
 <img src="./assets/VT058568-20170926_64_E1_gt.png" alt="ground truth instance segmentation for VT058568-20170926_64_E1" width="24%" />
 </p>
-
+Image: Maximum intensity projection of four example 3d light microscopy images in the top row, their respective ground truth segmentation in the bottom row. The images have an average size of ~400x700x700 pixels, an isotropic resolution of 0.44μm and three color channels.
 
 ## Summary
 
