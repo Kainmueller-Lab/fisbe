@@ -19,6 +19,21 @@ Dagmar Kainmueller [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Dag
 [[**`Paper`**](https://openreview.net/forum?id=)] [[**`Project`**](https://kainmueller-lab.github.io/flylight_inst_seg_dataset/)] [[**`Documentation`**](./datasheet)] [[**`Metrics`**](#metrics)] [[**`Leaderboard`**](#leaderboard)] [[**`BibTeX`**](#citation)] [[**`Changelog`**](./changelog)]
 
 
+<p float="left">
+<img src="./assets/R14A02-20180905_65_A6_raw.jpg" alt="maximum intensity projection of R14A02-20180905_65_A6" width="24%" />
+<img src="./assets/VT047848-20171020_66_I5_raw.jpg" alt="maximum intensity projection of VT047848-20171020_66_I5" width="24%" />
+<img src="./assets/VT047848-20171020_66_J1_raw.jpg" alt="maximum intensity projection of VT047848-20171020_66_J1" width="24%" />
+<img src="./assets/VT058568-20170926_64_E1_raw.jpg" alt="maximum intensity projection of VT058568-20170926_64_E1" width="24%" />
+</p>
+
+<p float="left">
+<img src="./assets/R14A02-20180905_65_A6_gt.png" alt="ground truth instance segmentation for R14A02-20180905_65_A6" width="24%" />
+<img src="./assets/VT047848-20171020_66_I5_gt.png" alt="ground truth instance segmentation for VT047848-20171020_66_I5" width="24%" />
+<img src="./assets/VT047848-20171020_66_J1_gt.png" alt="ground truth instance segmentation for VT047848-20171020_66_J1" width="24%" />
+<img src="./assets/VT058568-20170926_64_E1_gt.png" alt="ground truth instance segmentation for VT058568-20170926_64_E1" width="24%" />
+</p>
+
+
 ## Announcements
 
 June 2023: The paper is currently under review
