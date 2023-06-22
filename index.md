@@ -255,10 +255,19 @@ If you use *The FlyLight Instance Segmentation Dataset* in your research, please
 }
 ```
 
+## Acknowledgments
+
+We wish to thank Geoffrey W. Meissner for valuable discussions and the entire FlyLight Project Team for providing this incredible collection of MCFO acquisitions.
+This work was co-funded by Helmholtz Imaging.
+P.H. was funded by the MDC-NYU exchange program and HFSP grant RGP0021/2018-102. P.H., L.M. and D.K. were supported by the HHMI Janelia Visiting Scientist Program.
+VVD Viewer is an open-source software funded by NIH grant R01-GM098151-01.
+
+
 ## Changelog
 
 There have been no changes to the dataset so far.
 All future change will be listed [on the changelog page](./changelog).
+
 
 ## Contributing
 
