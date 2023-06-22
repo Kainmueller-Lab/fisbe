@@ -34,6 +34,17 @@ Dagmar Kainmueller [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Dag
 </p>
 
 
+## Summary
+
+- A new dataset for neuron instance segmentation in 3d multicolor light microscopy data of fruit fly brains
+  - 30 completely labeled, that is segmented, images
+  - 70 partly segmented images
+  - altogether comprising ∼600 expert-labeled neuron instances<br>
+	(labeling a single neuron takes between 30min and 4h)
+- To the best of our knowledge, the first real-world benchmark dataset for instance segmentation of long thin filamentous objects
+- A set of metrics and a novel ranking score for respective meaningful method benchmarking
+- An evaluation of a baseline deep learning-based instance segmentation model in terms of the above metrics and score
+
 ## Announcements
 
 June 2023: The paper is currently under review
