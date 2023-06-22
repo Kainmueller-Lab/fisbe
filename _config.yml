@@ -42,6 +42,8 @@ show_downloads: true
 # to override urls supplied by github
 github:
   zip_url: http://example.com/download.zip
+  source:
+    branch: gh-pages
 #   another_url: another value
 
 # Exclude from processing.
