@@ -6,14 +6,14 @@ layout: default
 
 
 
-Lisa Mais[<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Lisa Mais" width="24"/>](https://orcid.org/0000-0002-9281-2668),
-Peter Hirsch[<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Peter Hirsch" width="24"/>](https://orcid.org/0000-0002-2353-5310),
-Claire Managan[<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Claire Managan" width="24"/>](https://orcid.org/0000-0002-9510-6443),
+Lisa Mais [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Lisa Mais" width="24"/>](https://orcid.org/0000-0002-9281-2668) ,
+Peter Hirsch [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Peter Hirsch" width="24"/>](https://orcid.org/0000-0002-2353-5310) ,
+Claire Managan [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Claire Managan" width="24"/>](https://orcid.org/0000-0002-9510-6443) ,
 Ramya Kandarpa,
-Josef Lorenz Rumberger[<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Josef Lorenz Rumberger" width="24"/>](https://orcid.org/0000-0002-7225-7011),
-Annika Reinke[<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Annika Reinke" width="24"/>](https://orcid.org/0000-0003-4363-1876),
-Lena Maier-Hein[<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Lena Maier-Hein" width="24"/>](https://orcid.org/0000-0003-4910-9368),
-Gudrun Ihrke[<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Gudrun Ihrke" width="24"/>](https://orcid.org/0000-0003-4604-735X),
+Josef Lorenz Rumberger [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Josef Lorenz Rumberger" width="24"/>](https://orcid.org/0000-0002-7225-7011) ,
+Annika Reinke [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Annika Reinke" width="24"/>](https://orcid.org/0000-0003-4363-1876) ,
+Lena Maier-Hein [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Lena Maier-Hein" width="24"/>](https://orcid.org/0000-0003-4910-9368) ,
+Gudrun Ihrke [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Gudrun Ihrke" width="24"/>](https://orcid.org/0000-0003-4604-735X) ,
 Dagmar Kainmueller [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Dagmar Kainmueller" width="24"/>](https://orcid.org/0000-0002-9830-2415/)
 
 [[**`Paper`**](https://openreview.net/forum?id=)] [[**`Project`**](https://kainmueller-lab.github.io/flylight_inst_seg_dataset/)] [[**`Documentation`**](./datasheet)] [[**`Metrics`**](#metrics)] [[**`Leaderboard`**](#leaderboard)] [[**`BibTeX`**](#citation)] [[**`Changelog`**](./changelog)]
