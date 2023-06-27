@@ -35,8 +35,8 @@ Dagmar Kainmueller [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Dag
 ## Summary
 
 - A new dataset for neuron instance segmentation in 3d multicolor light microscopy data of fruit fly brains
-  - 30 completely labeled, that is segmented, images
-  - 70 partly segmented images
+  - 30 completely labeled images
+  - 70 partly labeled images
   - altogether comprising ∼600 expert-labeled neuron instances<br>
 	(labeling a single neuron takes between 30min and 4h)
 - To the best of our knowledge, the first real-world benchmark dataset for instance segmentation of long thin filamentous objects
@@ -145,9 +145,9 @@ python <script_name.py> <path-to-file>/R9F03-20181030_62_B5.zarr
 
 | Metric         | short description              |
 |----------------|--------------------------------|
-| S              | average of avF1 and C          |
+| S              | Average of avF1 and C          |
 | avF1           | Multi-Threshold F1 Score       |
-| C              | Average ground Truth coverage  |
+| C              | Average ground truth coverage  |
 | C<sub>TP</sub> | Average true positive coverage |
 | FS             | Number of false splits         |
 | FM             | Number of false merges         |
