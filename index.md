@@ -5,7 +5,6 @@ layout: default
 *under construction*
 
 
-
 Lisa Mais [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Lisa Mais" width="24"/>](https://orcid.org/0000-0002-9281-2668) ,
 Peter Hirsch [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Peter Hirsch" width="24"/>](https://orcid.org/0000-0002-2353-5310) ,
 Claire Managan [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Claire Managan" width="24"/>](https://orcid.org/0000-0002-9510-6443) ,
@@ -16,7 +15,7 @@ Lena Maier-Hein [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Lena M
 Gudrun Ihrke [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Gudrun Ihrke" width="24"/>](https://orcid.org/0000-0003-4604-735X) ,
 Dagmar Kainmueller [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Dagmar Kainmueller" width="24"/>](https://orcid.org/0000-0002-9830-2415/)
 
-[[**`Paper`**](https://openreview.net/forum?id=)] [[**`Project`**](https://kainmueller-lab.github.io/flylight_inst_seg_dataset/)] [[**`Documentation`**](./datasheet)] [[**`Metrics`**](#metrics)] [[**`Leaderboard`**](#leaderboard)] [[**`BibTeX`**](#citation)] [[**`Changelog`**](./changelog)]
+[[**`Paper`**](https://)] [[**`Project`**](https://kainmueller-lab.github.io/flylight_inst_seg_dataset/)] [[**`Documentation`**](./datasheet)] [[**`Metrics`**](#metrics)] [[**`Leaderboard`**](#leaderboard)] [[**`BibTeX`**](#citation)] [[**`Changelog`**](./changelog)]
 
 
 <p float="left">
@@ -153,7 +152,7 @@ python <script_name.py> <path-to-file>/R9F03-20181030_62_B5.zarr
 | FS             | Number of false splits         |
 | FM             | Number of false merges         |
 
-(for a precise formal definition please see [our paper](https://openreview.net/forum?id=))
+(for a precise formal definition please see [our paper](https://))
 
 
 ### Note
@@ -230,7 +229,7 @@ False merge errors count the additional number of gt instances that are covered 
 To showcase our new dataset together with our selection of metrics, we provide evaluation results for a baseline method, namely [PatchPerPix](https://github.com/Kainmueller-Lab/PatchPerPix), an instance segmentation method that was designed with some of the challenges in mind that our dataset exhibits.
 It intrinsically handles overlapping instances and has the capacity to disentangle thin intertwined structures.
 However, it does not model long-range data dependencies, and it can only handle overlaps up to a size threshold.
-For detailed information on the model please see [our paper](https://openreview.net/forum?id=).
+For detailed information on the model please see [our paper](https://).
 
 
 ## Leaderboard
