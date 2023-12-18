@@ -96,8 +96,8 @@ pip install zarr
 
 ```python
 import zarr
-raw = zarr.open(<path_to_zarr>, path="volumes/raw")
-seg = zarr.open(<path_to_zarr>, path="volumes/gt_instances")
+raw = zarr.open(<path_to_zarr>, mode='r', path="volumes/raw")
+seg = zarr.open(<path_to_zarr>, mode='r', path="volumes/gt_instances")
 
 # optional:
 import numpy as np
@@ -111,19 +111,19 @@ Optionally, the arrays can also explicitly be converted to numpy arrays.
 
 ### How to view *zarr* image files
 
-We recommend to use *napari* to view the image data.
+We recommend to use [*napari*](https://napari.org) to view the image data.
 
 1) Install *napari*:
 ```bash
-pip install "napari[all]" zarr
+pip install "napari[all]"
 ```
 
 2) Save the following Python script:
 ```python
 import zarr, sys, napari
 
-raw = zarr.load(sys.argv[1], path="volumes/raw")
-gt = zarr.load(sys.argv[1], path="volumes/gt_instances")
+raw = zarr.load(sys.argv[1], mode='r', path="volumes/raw")
+gt = zarr.load(sys.argv[1], mode='r', path="volumes/gt_instances")
 
 viewer = napari.Viewer(ndisplay=3)
 for idx, gt in enumerate(gts):
