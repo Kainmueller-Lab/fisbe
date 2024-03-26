@@ -18,10 +18,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: The FlyLight Instance Segmentation Dataset
+title: |
+  FISBe:<br>
+    The FlyLight Instance Segmentation Benchmark Dataset
 email: lisa.mais@mdc-berlin.de
 description: >- # this means to ignore newlines until "baseurl:"
-  A dataset for neuron instance segmentation in 3d multicolor light microscopy data of fruit fly brains, with 30 completely- and 70 partly labeled images, altogether comprising ∼600 expert-labeled neuron instances. It constitutes, to the best of our knowledge, the first publicly available multi-neuron LM dataset with pixel-wise ground truth and  the first real-world benchmark dataset for instance segmentation of long thin filamentous objects.
+  A dataset for neuron instance segmentation in 3d multicolor light microscopy data of fruit fly brains, with 30 completely- and 71 partly labeled images, altogether comprising ∼600 expert-labeled neuron instances. It constitutes, to the best of our knowledge, the first publicly available multi-neuron LM dataset with pixel-wise annotations and  the first real-world benchmark dataset for instance segmentation of long thin filamentous objects.
 # baseurl: "" # the subpath of your site, e.g. /blog
 # url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb

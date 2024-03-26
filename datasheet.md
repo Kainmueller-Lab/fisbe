@@ -1,10 +1,14 @@
 ---
 layout: default
+title: Datasheet
 ---
+
+
+[[**`Paper`**](https://)] [[**`Project`**](./index)] [[**`Documentation`**](./datasheet)] [[**`Metrics`**](./index#metrics)] [[**`Leaderboard`**](./index#leaderboard)] [[**`BibTeX`**](./index#citation)] [[**`Changelog`**](./changelog)]
 
 # Datasheet
 
-On this page we answer the Datasheet for Datasets questionnaire [[1]](#references) to document the FlyLight Instance Segmentation Benchmark dataset. It contains information about motivation, composition, collection, preprocessing, usage, licensing as well as hosting and maintenance plan.
+On this page we answer the Datasheet for Datasets questionnaire [[1]](#references) to document the FlyLight Instance Segmentation Benchmark (FISBe) dataset. It contains information about motivation, composition, collection, preprocessing, usage, licensing as well as hosting and maintenance plan.
 
 ## Motivation
 
@@ -183,7 +187,7 @@ The trained model was then applied to $\sim$40.000 samples of the MCFO collectio
 
 **Is there a repository that links to any or all papers or systems that use the dataset?** *If so, please provide a link or other access point.*
 
-As they are getting published, we will reference them at [https://kainmueller-lab.github.io/flylight_inst_seg_dataset](https://kainmueller-lab.github.io/flylight_inst_seg_dataset).<br>
+As they are getting published, we will reference them at [https://kainmueller-lab.github.io/fisbe](https://kainmueller-lab.github.io/fisbe).<br>
 
 
 **What (other) tasks could the dataset be used for?**
@@ -201,8 +205,7 @@ The dataset will be publicly available.<br>
 
 **How will the dataset be distributed (e.g., tarball on website, API, GitHub)** *Does the dataset have a digital object identifier (DOI)?*
 
-The dataset will be distributed through [zenodo](https://zenodo.org).
-It will receive a DOI (tbd) on publication.<br>
+The dataset will be distributed through [zenodo](https://zenodo.org) (DOI: [10.5281/zenodo.10875063](https://zenodo.org/doi/10.5281/zenodo.10875063)) and our project page [https://kainmueller-lab.github.io/fisbe](https://kainmueller-lab.github.io/fisbe).<br>
 
 
 **When will the dataset be distributed?**
@@ -234,14 +237,14 @@ Lisa Mais and Dagmar Kainmueller can be contacted at \{firstname.lastname\}@mdc-
 
 **Is there an erratum?** *If so, please provide a link or other access point.*
 
-Errata will be published at [https://kainmueller-lab.github.io/flylight_inst_seg_dataset](https://kainmueller-lab.github.io/flylight_inst_seg_dataset).<br>
+Errata will be published at [https://kainmueller-lab.github.io/fisbe](https://kainmueller-lab.github.io/fisbe).<br>
 
 
 **Will the dataset be updated (e.g., to correct labeling errors, add new samples, delete samples)?** *If so, please describe how often, by whom, and how updates will be communicated to users (e.g., mailing list, GitHub)?*
 
 The dataset will be updated to correct erroneous segmentation and potentially to add new samples and annotations.
 It will be updated when a relevant number of updates has accumulated.
-Updates will be communicated through [https://kainmueller-lab.github.io/flylight_inst_seg_dataset](https://kainmueller-lab.github.io/flylight_inst_seg_dataset).<br>
+Updates will be communicated through [https://kainmueller-lab.github.io/fisbe](https://kainmueller-lab.github.io/fisbe).<br>
 
 
 **Will older versions of the dataset continue to be supported/hosted/maintained?** *If so, please describe how. If not, please describe how its obsolescence will be communicated to users.*
@@ -253,7 +256,7 @@ Older versions of the dataset will thus stay available.<br>
 **If others want to extend/augment/build on/contribute to the dataset, is there a mechanism for them to do so?** *If so, please provide a description. Will these contributions be validated/verified? If so, please describe how. If not, why not? Is there a process for communicating/distributing these contributions to other users? If so, please provide a description.*
 
 We welcome contributions to our dataset.
-Errata, new samples and annotations and other contributions can be contributed via *github issues* at [https://kainmueller-lab.github.io/flylight_inst_seg_dataset](https://kainmueller-lab.github.io/flylight_inst_seg_dataset).
+Errata, new samples and annotations and other contributions can be contributed via *github issues* at [https://kainmueller-lab.github.io/fisbe](https://kainmueller-lab.github.io/fisbe).
 We will verify such contributions and update the dataset accordingly.<br>
 
 

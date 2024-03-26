@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Home
 ---
 
 *under construction*
@@ -15,7 +16,7 @@ Lena Maier-Hein [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Lena M
 Gudrun Ihrke [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Gudrun Ihrke" width="24"/>](https://orcid.org/0000-0003-4604-735X) ,
 Dagmar Kainmueller [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Dagmar Kainmueller" width="24"/>](https://orcid.org/0000-0002-9830-2415/)
 
-[[**`Paper`**](https://)] [[**`Project`**](https://kainmueller-lab.github.io/flylight_inst_seg_dataset/)] [[**`Documentation`**](./datasheet)] [[**`Metrics`**](#metrics)] [[**`Leaderboard`**](#leaderboard)] [[**`BibTeX`**](#citation)] [[**`Changelog`**](./changelog)]
+[[**`Paper`**](https://)] [[**`Project`**](./index)] [[**`Documentation`**](./datasheet)] [[**`Metrics`**](#metrics)] [[**`Leaderboard`**](#leaderboard)] [[**`BibTeX`**](#citation)] [[**`Changelog`**](./changelog)]
 
 
 <p float="left">
@@ -67,7 +68,7 @@ Lastly, we provide a baseline model to kick off a competition that we envision t
 
 We provide a detailed documentation of our dataset, following the [Datasheet for Datasets](https://arxiv.org/abs/1803.09010) questionnaire:
 
-*[>> The FlyLight Instance Segmentation Dataset Datasheet](./datasheet)*
+*[>> FISBe Datasheet](./datasheet)*
 
 ## How to work with the image files
 
@@ -259,7 +260,7 @@ We will add you to the leaderboard.
 
 ## License
 
-*The FlyLight Instance Segmentation Dataset* is licensed under the
+*The FlyLight Instance Segmentation Dataset (FISBe)* is licensed under the
 [Creative Commons Attribution 4.0 International (CC BY 4.0) license](https://creativecommons.org/licenses/by/4.0).
 
 ![CC BY 4.0](http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png "CC BY 4.0 license")
