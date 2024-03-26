@@ -43,7 +43,7 @@ show_downloads: true
 
 # to override urls supplied by github
 github:
-  zip_url: http://example.com/download.zip
+  zip_url: https://zenodo.org/doi/10.5281/zenodo.10875063
   source:
     branch: tree/gh-pages
 #   another_url: another value

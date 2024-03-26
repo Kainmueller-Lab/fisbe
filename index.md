@@ -38,29 +38,29 @@ Image: Maximum intensity projection of four example 3d light microscopy images i
 
 - A new dataset for neuron instance segmentation in 3d multicolor light microscopy data of fruit fly brains
   - 30 completely labeled, that is segmented, images
-  - 70 partly segmented images
+  - 71 partly segmented images
   - altogether comprising ∼600 expert-labeled neuron instances<br>
 	(labeling a single neuron takes between 30min and 4h)
 - To the best of our knowledge, the first real-world benchmark dataset for instance segmentation of long thin filamentous objects
 - A set of metrics and a novel ranking score for respective meaningful method benchmarking
-- An evaluation of a baseline deep learning-based instance segmentation model in terms of the above metrics and score
+- An evaluation of three baseline methods in terms of the above metrics and score
 
 ## Announcements
 
-June 2023: The paper is currently under review
+- February 2024: The paper got accepted at CVPR 2024!
+- November 2023: The paper is currently under review.
+
 
 
 ## Abstract
 
 <!-- <div style="text-align: justify"> -->
-Neurons imaged with light microscopy (LM) exhibit extremely challenging properties for the task of instance segmentation.
-Yet such recordings enable groundbreaking research in neuroscience by allowing joint functional and morphological analysis of brain function on the single cell level.
-Segmenting individual neurons in multi-neuron LM recordings is intricate due to the long, thin filamentous and widely branching morphology of individual neurons, the tight interweaving of multiple neurons, and LM-specific imaging characteristics like partial volume effects and uneven illumination.<br>
-These challenging properties reflect a key current challenge for deep-learning models across domains, namely to efficiently capture long-range dependencies in the data.
-While methodological research on this topic is buzzing in the machine learning community, to date, respective methods are typically benchmarked on synthetic datasets.
-To fill this gap, we release the FlyLight Instance Segmentation Benchmark dataset, the first publicly available multi-neuron LM dataset with pixel-wise ground truth.
-Together with the data, we define a set of instance segmentation metrics for benchmarking, which we designed to be meaningful with regards to downstream analysis of neuronal structures.
-Lastly, we provide a baseline model to kick off a competition that we envision to both advance the field of machine learning regarding methodology for capturing long-range data dependencies, as well as facilitate scientific discovery in basic neuroscience.
+Instance segmentation of neurons in volumetric light microscopy images of nervous systems enables groundbreaking research in neuroscience by facilitating joint functional and morphological analyses of neural circuits at cellular resolution.
+Yet said multi-neuron light microscopy data exhibits extremely challenging properties for the task of instance segmentation:
+Individual neurons have long-ranging, thin filamentous and widely branching morphologies, multiple neurons are tightly inter-weaved, and partial volume effects, uneven illumination and noise inherent to light microscopy severely impede local disentangling as well as long-range tracing of individual neurons.
+These properties reflect a current key challenge in machine learning research, namely to effectively capture long-range dependencies in the data. While respective methodological research is buzzing, to date, methods are typically benchmarked on synthetic datasets.
+To address this gap, we release the FlyLight Instance Segmentation Benchmark (FISBe) dataset, the first publicly available multi-neuron light microscopy dataset with pixel-wise ground truth.
+Together with the data, we define a set of instance segmentation metrics for benchmarking that we designed to be meaningful with regard to downstream analyses. Lastly, we provide three baselines to kick off a competition that we envision to both advance the field of machine learning regarding methodology for capturing long-range data dependencies, and facilitate scientific discovery in basic neuroscience.
 <!-- </div> -->
 
 
@@ -144,14 +144,15 @@ python <script_name.py> <path-to-file>/R9F03-20181030_62_B5.zarr
 
 ## Metrics
 
-| Metric         | short description              |
-|----------------|--------------------------------|
-| S              | average of avF1 and C          |
-| avF1           | Multi-Threshold F1 Score       |
-| C              | Average ground Truth coverage  |
-| C<sub>TP</sub> | Average true positive coverage |
-| FS             | Number of false splits         |
-| FM             | Number of false merges         |
+| Metric              | short description                 |
+|---------------------|-----------------------------------|
+| S                   | Average of avF1 and C             |
+| avF1                | Multi-Threshold F1 Score          |
+| C                   | Average ground truth coverage     |
+| clDice<sub>TP</sub> | Average true positive coverage    |
+| FS                  | Number of false splits            |
+| FM                  | Number of false merges            |
+| tp                  | Relative number of true positives |
 
 (for a precise formal definition please see [our paper](https://))
 
@@ -202,18 +203,15 @@ average of *avF1* and *C*:
    (to avoid double-counting of pixels with overlapping predictions)
 
 
-### Average true positive coverage C<sub>TP</sub>
+### Average clDice for TP (clDice<sub>TP</sub>) and relative TP (tp)
 
-1. localization: *clPrecision*
-   - compute *clPrecision* scores for all pairs of *predicted* instances and *gt* instances
+1. localization: *clDice*
+   - (re-use localization from *avF1*)
 2. matching: *greedy*
-   - sort all *clDice* scores in descending order
-   - match each *predicted* instance to the *gt* instance with the highest *clPrecision* score
-   - each *gt* instance can be covered by multiple predictions (*one-to-many* matching)
+   - (re-use matching from *avF1*)
 3. computation
-   - compute *clRecall* for all *gt* instances and the union of their matched *predictions*
-   - compute average of *clRecall* of all *gt* instances with a minimum coverage of 0.5<br>
-   ("true positive instances", *clRecall > 0.5*)
+   - clDice<sub>TP</sub>: average *clDice* for all matches above a threshold of 0.5<br>
+   - tp: divide number of matches above a threshold of 0.5 by the total number of *gt* instances
 
 
 ### FS (false splits)
@@ -225,37 +223,37 @@ False split errors are predictions that are not *one-to-one* matched to a ground
 False merge errors count the additional number of gt instances that are covered by a prediction instance with *clRecall > 0.5*, aside from one possibly matched gt instance.
 
 
+
 ## Baseline
 
-To showcase our new dataset together with our selection of metrics, we provide evaluation results for a baseline method, namely [PatchPerPix](https://github.com/Kainmueller-Lab/PatchPerPix), an instance segmentation method that was designed with some of the challenges in mind that our dataset exhibits.
-It intrinsically handles overlapping instances and has the capacity to disentangle thin intertwined structures.
-However, it does not model long-range data dependencies, and it can only handle overlaps up to a size threshold.
-For detailed information on the model please see [our paper](https://).
+To showcase the FISBe dataset together with our selection of metrics, we provide evaluation results for three baseline methods, namely [PatchPerPix (ppp)](https://github.com/Kainmueller-Lab/PatchPerPix), [Flood Filling Networks (FFN)](https://github.com/google/ffn) and a non-learnt application-specific [color
+clustering from Duan et al.](https://www.biorxiv.org/content/10.1101/2020.06.07.138941v1).
+For detailed information on the methods please see [our paper](https://).
 
 
 ## Leaderboard
 
-If you applied your own method to *the FlyLight Instance Segmentation Dataset*, please let us know!
+If you applied your own method to *FISBe*, please let us know!
 We will add you to the leaderboard.
 
 ### Leaderboard *completely* labeled data
 
 (Trained on *completely* labeled data, evaluated on *completely* labeled data and *partly* labeled data combined)
 
-| Method      | S | avF1 | C | C<sub>TP</sub> | FS | FM |
-|-------------|---|------|---|---------------|----|----|
-| PatchPerPix |   |      |   |               |    |    |
-|             |   |      |   |               |    |    |
+| Method      | S    | avF1 | C    | clDice<sub>TP</sub> | tp   | FS | FM |
+|-------------|------|------|------|---------------------|------|----|----|
+| PatchPerPix | 0.35 | 0.34 | 0.35 | 0.80                | 0.36 | 19 | 52 |
+| FFN         | 0.25 | 0.22 | 0.29 | 0.80                | 0.32 | 17 | 39 |
+| Duan et al. | 0.30 | 0.27 | 0.33 | 0.77                | 0.37 | 45 | 29 |
 
 
 ### Leaderboard *completely+partly* labeled data
 
 (Trained on *completely* labeled and *partly* labeled data combined, evaluated on *completely* labeled data and *partly* labeled data combined)
 
-| Method               | S | avF1 | C | C<sub>TP</sub> | FS | FM |
-|----------------------|---|------|---|---------------|----|----|
-| PatchPerPix(+partly) |   |      |   |               |    |    |
-|                      |   |      |   |               |    |    |
+| Method       | S    | avF1 | C    | clDice<sub>TP</sub> | tp   | FS | FM |
+|--------------|------|------|------|---------------------|------|----|----|
+| FFN(+partly) | 0.27 | 0.24 | 0.31 | 0.80                | 0.36 | 18 | 36 |
 
 
 ## License
@@ -268,25 +266,24 @@ We will add you to the leaderboard.
 
 ## Citation
 
-If you use *The FlyLight Instance Segmentation Dataset* in your research, please use the following BibTeX entry:
+If you use *FISBe* in your research, please use the following BibTeX entry:
 
 ```BibTeX
-@inproceedings{mais2023_the_flylight_inst_seg_dataset,
-  title =	 {The FlyLight Instance Segmentation Dataset},
+@inproceedings{mais2024_fisbe,
+  title =	 {FISBe: A real-world benchmark dataset for instance segmentation of long-range thin filamentous structures},
   author =	 {Lisa Mais and Peter Hirsch and Claire Managan and Ramya
                   Kandarpa and Josef Lorenz Rumberger and Annika Reinke and Lena
                   Maier-Hein and Gudrun Ihrke and Dagmar Kainmueller},
-  journal =	 {(in review)},
-  year =	 {2023}
+  journal =	 {CVPR (accepted)},
+  year =	 {2024}
 }
 ```
 
 ## Acknowledgments
 
-We wish to thank Geoffrey W. Meissner for valuable discussions and the entire FlyLight Project Team for providing this incredible collection of MCFO acquisitions.
+We wish to thank Geoffrey W. Meissner for valuable discussions, Aljoscha Nern for providing unpublished MCFO images and the entire FlyLight Project Team for creating the raw data.
+P.H., L.M. and D.K. were supported by the HHMI Janelia Visiting Scientist Program.
 This work was co-funded by Helmholtz Imaging.
-P.H. was funded by the MDC-NYU exchange program and HFSP grant RGP0021/2018-102. P.H., L.M. and D.K. were supported by the HHMI Janelia Visiting Scientist Program.
-VVD Viewer is an open-source software funded by NIH grant R01-GM098151-01.
 
 
 ## Changelog
@@ -297,6 +294,6 @@ All future change will be listed [on the changelog page](./changelog).
 
 ## Contributing
 
-If you would like to contribute, have encountered any issues or have any suggestions, please [open an issue](https://github.com/Kainmueller-Lab/flylight_inst_seg_dataset/issues "open issue for fhe FlyLight Instance Segmentation Dataset") in this GitHub repository.
+If you would like to contribute, have encountered any issues or have any suggestions, please [open an issue](https://github.com/Kainmueller-Lab/fisbe/issues "open issue for fhe FlyLight Instance Segmentation Dataset") in this GitHub repository.
 
 All contributions are welcome!
