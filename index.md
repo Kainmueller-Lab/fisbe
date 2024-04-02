@@ -3,11 +3,9 @@ layout: default
 title: Home
 ---
 
-*under construction*
 
-
-Lisa Mais [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Lisa Mais" width="24"/>](https://orcid.org/0000-0002-9281-2668) ,
-Peter Hirsch [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Peter Hirsch" width="24"/>](https://orcid.org/0000-0002-2353-5310) ,
+Lisa Mais\* [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Lisa Mais" width="24"/>](https://orcid.org/0000-0002-9281-2668) ,
+Peter Hirsch\* [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Peter Hirsch" width="24"/>](https://orcid.org/0000-0002-2353-5310) ,
 Claire Managan [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Claire Managan" width="24"/>](https://orcid.org/0000-0002-9510-6443) ,
 Ramya Kandarpa,
 Josef Lorenz Rumberger [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Josef Lorenz Rumberger" width="24"/>](https://orcid.org/0000-0002-7225-7011) ,
@@ -15,8 +13,9 @@ Annika Reinke [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Annika R
 Lena Maier-Hein [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Lena Maier-Hein" width="24"/>](https://orcid.org/0000-0003-4910-9368) ,
 Gudrun Ihrke [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Gudrun Ihrke" width="24"/>](https://orcid.org/0000-0003-4604-735X) ,
 Dagmar Kainmueller [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Dagmar Kainmueller" width="24"/>](https://orcid.org/0000-0002-9830-2415/)
+<br><small>\* shared first authors</small>
 
-[[**`Paper`**](https://)] [[**`Project`**](./index)] [[**`Documentation`**](./datasheet)] [[**`Metrics`**](#metrics)] [[**`Leaderboard`**](#leaderboard)] [[**`BibTeX`**](#citation)] [[**`Changelog`**](./changelog)]
+[[**`Project`**](./index)] [[**`Paper`**](https://arxiv.org/abs/2404.00130)] [[**`Data`**](https://zenodo.org/doi/10.5281/zenodo.10875063)] [[**`Documentation`**](./datasheet)] [[**`Metrics`**](#metrics)] [[**`Leaderboard`**](#leaderboard)] [[**`BibTeX`**](#citation)] [[**`Changelog`**](./changelog)]
 
 
 <p float="left">
@@ -34,19 +33,21 @@ Dagmar Kainmueller [<img src="./assets/ORCIDiD_iconvector.svg" alt="ORCID iD Dag
 </p>
 Image: Maximum intensity projection of four example 3d light microscopy images in the top row, their respective ground truth segmentation in the bottom row. The images have an average size of ~400x700x700 pixels, an isotropic resolution of 0.44μm and three color channels.
 
+
 ## Summary
 
 - A new dataset for neuron instance segmentation in 3d multicolor light microscopy data of fruit fly brains
-  - 30 completely labeled, that is segmented, images
-  - 71 partly segmented images
-  - altogether comprising ∼600 expert-labeled neuron instances<br>
-	(labeling a single neuron takes between 30min and 4h)
+  - 30 completely labeled (segmented) images
+  - 71 partly labeled images
+  - altogether comprising ∼600 expert-labeled neuron instances
+	(labeling a single neuron takes between 30-60 min on average, yet a difficult one can take up to 4 hours)
 - To the best of our knowledge, the first real-world benchmark dataset for instance segmentation of long thin filamentous objects
 - A set of metrics and a novel ranking score for respective meaningful method benchmarking
 - An evaluation of three baseline methods in terms of the above metrics and score
 
 ## Announcements
 
+- April 2024: The data is now publicly available.
 - February 2024: The paper got accepted at CVPR 2024!
 - November 2023: The paper is currently under review.
 
@@ -69,6 +70,9 @@ Together with the data, we define a set of instance segmentation metrics for ben
 We provide a detailed documentation of our dataset, following the [Datasheet for Datasets](https://arxiv.org/abs/1803.09010) questionnaire:
 
 *[>> FISBe Datasheet](./datasheet)*
+
+Our dataset originates from the [FlyLight](https://www.janelia.org/project-team/flylight) project, where the authors released a large image collection of nervous systems of ~74,000 flies, [available for download](https://gen1mcfo.janelia.org/cgi-bin/gen1mcfo.cgi) under CC BY 4.0 license.
+
 
 ## How to work with the image files
 
@@ -93,7 +97,7 @@ conda activate flylight-env
 pip install zarr
 ```
 
-2) Opened a *zarr* file with:
+2) Open a *zarr* file with:
 
 ```python
 import zarr
@@ -124,7 +128,7 @@ pip install "napari[all]"
 import zarr, sys, napari
 
 raw = zarr.load(sys.argv[1], mode='r', path="volumes/raw")
-gt = zarr.load(sys.argv[1], mode='r', path="volumes/gt_instances")
+gts = zarr.load(sys.argv[1], mode='r', path="volumes/gt_instances")
 
 viewer = napari.Viewer(ndisplay=3)
 for idx, gt in enumerate(gts):
@@ -154,7 +158,7 @@ python <script_name.py> <path-to-file>/R9F03-20181030_62_B5.zarr
 | FM                  | Number of false merges            |
 | tp                  | Relative number of true positives |
 
-(for a precise formal definition please see [our paper](https://))
+(for a precise formal definition please see [our paper](https://arxiv.org/abs/2404.00130))
 
 
 ### Note
@@ -216,19 +220,33 @@ average of *avF1* and *C*:
 
 ### FS (false splits)
 
-False split errors are predictions that are not *one-to-one* matched to a ground truth (gt) instance but that primarily lie within a gt instance and not the background.
+FS errors occur when one *gt* instance is covered by multiple *predicted* instances.
+
+1. localization: *clRecall*
+   - compute *clRecall* scores for all pairs of predicted instances and gt instances
+2. matching: *greedy*
+   - *greedy many-to-many* matching with adaptive algorithm to handle overlaps (see Alg. 1 in paper)
+3. computation
+   - count for each *gt* instance the additional number of assigned *predicted* instances apart from one correctly matched instance
+
 
 ### FM (false merges)
 
-False merge errors count the additional number of gt instances that are covered by a prediction instance with *clRecall > 0.5*, aside from one possibly matched gt instance.
+FM errors occur when one *predicted* instance covers more than one *gt* instance
 
+1. localization: *clRecall*
+   - compute *clRecall* scores for all pairs of *predicted* instances and *gt* instances
+2. matching: *greedy*
+   - *greedy many-to-many* matching with adaptive algorithm to handle overlaps (see Alg. 1 in paper)
+3. computation
+   - count for each *predicted* instance the additional number of assigned *gt* instances apart from one correctly matched instance
 
 
 ## Baseline
 
 To showcase the FISBe dataset together with our selection of metrics, we provide evaluation results for three baseline methods, namely [PatchPerPix (ppp)](https://github.com/Kainmueller-Lab/PatchPerPix), [Flood Filling Networks (FFN)](https://github.com/google/ffn) and a non-learnt application-specific [color
 clustering from Duan et al.](https://www.biorxiv.org/content/10.1101/2020.06.07.138941v1).
-For detailed information on the methods please see [our paper](https://).
+For detailed information on the methods please see [our paper](https://arxiv.org/abs/2404.00130).
 
 
 ## Leaderboard
@@ -269,19 +287,23 @@ We will add you to the leaderboard.
 If you use *FISBe* in your research, please use the following BibTeX entry:
 
 ```BibTeX
-@inproceedings{mais2024_fisbe,
-  title =	 {FISBe: A real-world benchmark dataset for instance segmentation of long-range thin filamentous structures},
-  author =	 {Lisa Mais and Peter Hirsch and Claire Managan and Ramya
+@misc{mais2024fisbe,
+  title =        {FISBe: A real-world benchmark dataset for instance
+                  segmentation of long-range thin filamentous structures},
+  author =       {Lisa Mais and Peter Hirsch and Claire Managan and Ramya
                   Kandarpa and Josef Lorenz Rumberger and Annika Reinke and Lena
                   Maier-Hein and Gudrun Ihrke and Dagmar Kainmueller},
-  journal =	 {CVPR (accepted)},
-  year =	 {2024}
+  year =         2024,
+  eprint =       {2404.00130},
+  archivePrefix ={arXiv},
+  primaryClass = {cs.CV}
 }
 ```
 
 ## Acknowledgments
 
-We wish to thank Geoffrey W. Meissner for valuable discussions, Aljoscha Nern for providing unpublished MCFO images and the entire FlyLight Project Team for creating the raw data.
+We thank Aljoscha Nern for providing unpublished MCFO images as well as Geoffrey W. Meissner and the entire FlyLight Project Team for valuable
+discussions.
 P.H., L.M. and D.K. were supported by the HHMI Janelia Visiting Scientist Program.
 This work was co-funded by Helmholtz Imaging.
 
@@ -294,6 +316,6 @@ All future change will be listed [on the changelog page](./changelog).
 
 ## Contributing
 
-If you would like to contribute, have encountered any issues or have any suggestions, please [open an issue](https://github.com/Kainmueller-Lab/fisbe/issues "open issue for fhe FlyLight Instance Segmentation Dataset") in this GitHub repository.
+If you would like to contribute, have encountered any issues or have any suggestions, please [open an issue](https://github.com/Kainmueller-Lab/fisbe/issues "open issue for the FlyLight Instance Segmentation Dataset") in this GitHub repository.
 
 All contributions are welcome!
