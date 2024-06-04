@@ -151,7 +151,7 @@ python <script_name.py> <path-to-file>/R9F03-20181030_62_B5.zarr
 | Metric              | short description                 |
 |---------------------|-----------------------------------|
 | S                   | Average of avF1 and C             |
-| avF1                | Multi-Threshold F1 Score          |
+| avF1                | Average F1 Score                  |
 | C                   | Average ground truth coverage     |
 | clDice<sub>TP</sub> | Average true positive coverage    |
 | FS                  | Number of false splits            |
@@ -175,7 +175,7 @@ average of *avF1* and *C*:
 *S = 0.5 \* avF1 + 0.5 \* C*
 
 
-### Multi-threshold F1 score *avF1*
+### Average F1 score *avF1*
 1. localization: *clDice*
    - [*clDice*](https://arxiv.org/abs/2003.07311) measures how much of the centerline of a given *gt* instance is covered by a certain *predicted* instance and vice versa
    - compute *clDice* for all pairs of *predicted* and *gt* instances<br>
@@ -254,24 +254,28 @@ For detailed information on the methods please see [our paper](https://arxiv.org
 If you applied your own method to *FISBe*, please let us know!
 We will add you to the leaderboard.
 
-### Leaderboard *completely* labeled data
+### Leaderboard *combined* test set (*completely+partly* labeled data)
 
-(Trained on *completely* labeled data, evaluated on *completely* labeled data and *partly* labeled data combined)
+(Evaluated on *completely* and *partly* labeled data, trained on *completely* or *combined* (+partly))
+
+| Method     | S    | avF1 | C    | clDice<sub>TP</sub> | tp   | FS | FM |
+|------------|------|------|------|---------------------|------|----|----|
+| PatchPerPix | 0.35 | 0.34 | 0.35 | 0.80                | 0.36 | 19 | 52 |
+| Duan et al. | 0.30 | 0.27 | 0.33 | 0.77                | 0.37 | 45 | 29 |
+| FFN+partly | 0.27 | 0.24 | 0.31 | 0.80                | 0.36 | 18 | 36 |
+| FFN        | 0.25 | 0.22 | 0.29 | 0.80                | 0.32 | 17 | 39 |
+
+
+### Leaderboard *completely* test set
+
+(Evaluated on *completely* labeled data, trained on *completely* or *combined* (+partly))
 
 | Method      | S    | avF1 | C    | clDice<sub>TP</sub> | tp   | FS | FM |
 |-------------|------|------|------|---------------------|------|----|----|
-| PatchPerPix | 0.35 | 0.34 | 0.35 | 0.80                | 0.36 | 19 | 52 |
-| FFN         | 0.25 | 0.22 | 0.29 | 0.80                | 0.32 | 17 | 39 |
-| Duan et al. | 0.30 | 0.27 | 0.33 | 0.77                | 0.37 | 45 | 29 |
-
-
-### Leaderboard *completely+partly* labeled data
-
-(Trained on *completely* labeled and *partly* labeled data combined, evaluated on *completely* labeled data and *partly* labeled data combined)
-
-| Method       | S    | avF1 | C    | clDice<sub>TP</sub> | tp   | FS | FM |
-|--------------|------|------|------|---------------------|------|----|----|
-| FFN(+partly) | 0.27 | 0.24 | 0.31 | 0.80                | 0.36 | 18 | 36 |
+| PatchPerPix | 0.34 | 0.29 | 0.40 | 0.81                | 0.45 | 3  | 4  |
+| Duan et al. | 0.28 | 0.23 | 0.33 | 0.81                | 0.38 | 6  | 1  |
+| FFN+partly  | 0.19 | 0.10 | 0.29 | 0.80                | 0.34 | 2  | 2  |
+| FFN         | 0.18 | 0.11 | 0.26 | 0.77                | 0.31 | 2  | 2  |
 
 
 ## License
